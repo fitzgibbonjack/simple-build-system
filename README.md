@@ -4,6 +4,9 @@
 
 A simple build system and file bundler for web based projects.
 
+-   uses .scss as a css pre-processor
+-   live server with hot reloading
+
 ## Installation
 
 ### `npm install`

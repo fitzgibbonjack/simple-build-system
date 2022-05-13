@@ -6,9 +6,10 @@
 	"scripts": {
 		"scss": "sass src/scss/index.scss src/scss/index.css",
 		"cssmin": "cleancss --with-rebase src/scss/index.css -o dist/main.min.css --input-source-map dist/main.css.map",
+		"liveserver": "live-server --port=4200",
 		"build:css": "npm run scss && npm run cssmin",
 		"watch:css": "onchange 'src/scss/**/*.scss' -- npm run scss",
-		"dev": "npm run watch:css",
+		"dev": "npm run liveserver & npm run watch:css",
 		"build": "webpack && npm run build:css"
 	},
 	"devDependencies": {
@@ -16,6 +17,7 @@
 		"copy-webpack-plugin": "^10.2.4",
 		"html-webpack-plugin": "^5.5.0",
 		"html-webpack-tags-plugin": "^3.0.2",
+		"live-server": "^1.2.2",
 		"onchange": "^7.1.0",
 		"sass": "^1.51.0",
 		"webpack": "^5.72.1",
