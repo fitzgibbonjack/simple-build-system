@@ -5,11 +5,11 @@
 	"description": "Simple build tool for web based projects. Compile and minify SCSS, bundle and minify Javascipt",
 	"scripts": {
 		"scss": "sass src/scss/index.scss src/scss/index.css",
-		"cssmin": "cleancss --with-rebase src/scss/index.css -o dist/main.min.css --input-source-map dist/main.css.map",
-		"liveserver": "live-server --port=4200",
+		"cssmin": "cleancss --with-rebase src/scss/index.css -o dist/main.min.css",
+		"liveserver": "cd src && live-server --port=6969 --host=localhost",
 		"build:css": "npm run scss && npm run cssmin",
 		"watch:css": "onchange 'src/scss/**/*.scss' -- npm run scss",
-		"dev": "npm run liveserver & npm run watch:css",
+		"dev": "npm run watch:css & npm run liveserver",
 		"build": "webpack && npm run build:css"
 	},
 	"devDependencies": {

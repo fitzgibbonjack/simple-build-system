@@ -35,9 +35,11 @@ p {
 	line-height: 1.5;
 }
 
-/* A elements that don't have a class get default styles */
-a:not([class]) {
-	text-decoration-skip-ink: auto;
+/* <a> elements with a class or child of <li> with class, remove default styling */
+a[class],
+li[class] a {
+	text-decoration: none;
+	color: unset;
 }
 
 /* Make images easier to work with */
