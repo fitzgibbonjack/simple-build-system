@@ -11,7 +11,6 @@ module.exports = {
 		filename: "main.min.js",
 		assetModuleFilename: "[name][ext]",
 	},
-	devtool: "source-map",
 	plugins: [
 		new HtmlWebpackPlugin({
 			filename: "index.html",
