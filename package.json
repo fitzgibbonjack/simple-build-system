@@ -5,11 +5,12 @@
 	"description": "Simple build tool for web based projects. Compile and minify SCSS, bundle and minify Javascipt",
 	"scripts": {
 		"scss": "sass src/scss/index.scss src/scss/index.css",
-		"cssmin": "cleancss --with-rebase src/scss/index.css -o dist/main.min.css",
+		"minify:css": "cleancss --with-rebase src/scss/index.css -o dist/main.min.css",
 		"liveserver": "cd src && live-server --port=6969 --host=localhost",
-		"build:css": "npm run scss && npm run cssmin",
+		"rebase:css": "replace-in-file --configFile=rebase.config.js",
+		"build:css": "npm run scss && npm run minify:css && npm run rebase:css",
 		"watch:css": "onchange 'src/scss/**/*.scss' -- npm run scss",
-		"dev": "npm run watch:css & npm run liveserver",
+		"dev": "npm run scss && npm run watch:css & npm run liveserver",
 		"build": "webpack && npm run build:css"
 	},
 	"devDependencies": {
@@ -19,6 +20,7 @@
 		"html-webpack-tags-plugin": "^3.0.2",
 		"live-server": "^1.2.2",
 		"onchange": "^7.1.0",
+		"replace-in-file": "^6.3.2",
 		"sass": "^1.51.0",
 		"webpack": "^5.72.1",
 		"webpack-cli": "^4.9.2"
